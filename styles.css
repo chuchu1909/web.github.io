@@ -1,6 +1,6 @@
 /* VARIABLES Y RESET */
 :root {
-    --primary-color: #8e44ad; /* Tono morado principal basado en los diagramas */
+    --primary-color: #8e44ad;
     --secondary-color: #9b59b6;
     --accent-color: #ff6b6b;
     --dark: #2c3e50;
@@ -21,10 +21,52 @@ body {
     color: var(--dark);
     line-height: 1.6;
     scroll-behavior: smooth;
+    background-color: #fff;
 }
 
 a { text-decoration: none; color: inherit; transition: 0.3s; }
 ul { list-style: none; }
+
+/* 0. LAYOUT & PUBLICIDAD (NUEVO) */
+.layout-grid {
+    display: grid;
+    /* Columna izq (150px) - Contenido (flexible) - Columna der (150px) */
+    grid-template-columns: 150px 1fr 150px; 
+    width: 100%;
+    margin-top: 70px; /* Para que no se esconda debajo del header fijo */
+}
+
+.ad-sidebar {
+    background-color: #f0f0f0; /* Color gris de fondo para diferenciar */
+    height: calc(100vh - 70px); /* Ocupa toda la altura de la pantalla menos el header */
+    position: sticky; /* HACE LA MAGIA: Se queda fijo al hacer scroll */
+    top: 70px; /* Se pega justo debajo del header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 900;
+}
+
+.ad-placeholder {
+    width: 100%;
+    height: 80%;
+    background-color: #ccc; /* Gris más oscuro para simular el banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* El contenido principal no necesita ajustes especiales, 
+   solo aseguramos que ocupe su columna */
+.main-content {
+    min-width: 0; /* Evita desbordamientos en grid */
+}
+
 
 /* UTILITIES */
 .container {
@@ -61,27 +103,23 @@ ul { list-style: none; }
     background-color: var(--primary-color);
     color: var(--white);
 }
-
 .btn-primary:hover { background-color: var(--secondary-color); }
-
 .btn-secondary {
     background-color: transparent;
     border: 2px solid var(--white);
     color: var(--white);
     margin-left: 10px;
 }
-
 .btn-secondary:hover { background-color: var(--white); color: var(--dark); }
-
 .btn-center { display: block; margin: 30px auto 0; width: fit-content; }
 
-/* 1. HEADER (MODIFICADO PARA LOGO IMAGEN) */
+/* 1. HEADER */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     height: 70px;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -95,9 +133,8 @@ header {
     align-items: center;
     height: 100%;
 }
-
 .logo-img {
-    height: 50px; /* Altura controlada */
+    height: 50px;
     width: auto;
     display: block;
 }
@@ -111,11 +148,10 @@ nav a:hover { color: var(--primary-color); }
 
 /* 2. HERO SECTION */
 .hero {
-    height: 100vh;
+    height: 80vh; /* Reducido un poco para equilibrar */
     background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,15 +159,12 @@ nav a:hover { color: var(--primary-color); }
     text-align: center;
     color: var(--white);
 }
-
 .hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.5);
 }
-
-.hero-content { position: relative; z-index: 1; max-width: 800px; }
-.hero h1 { font-family: var(--font-heading); font-size: 4rem; margin-bottom: 20px; }
+.hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 20px;}
+.hero h1 { font-family: var(--font-heading); font-size: 3.5rem; margin-bottom: 20px; }
 .hero p { font-size: 1.2rem; margin-bottom: 30px; }
 
 /* 3. EXPLORAR */
@@ -144,38 +177,23 @@ nav a:hover { color: var(--primary-color); }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajustado un poco */
     gap: 20px;
 }
-
 .gallery-item {
-    position: relative;
-    height: 300px;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
+    position: relative; height: 300px; overflow: hidden; border-radius: 10px; cursor: pointer;
 }
-
-.gallery-item img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.4s;
-}
-
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
 .gallery-item:hover img { transform: scale(1.1); }
-
 .gallery-item .overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.4);
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
     opacity: 0; transition: 0.3s;
 }
-
 .gallery-item:hover .overlay { opacity: 1; }
 .gallery-item .overlay span { color: white; margin-bottom: 10px; font-weight: 600; }
-.gallery-item button {
-    padding: 8px 16px; border: none; background: white; border-radius: 20px; cursor: pointer;
-}
+.gallery-item button { padding: 8px 16px; border: none; background: white; border-radius: 20px; cursor: pointer; }
 
 /* 4. INSPO */
 .inspo-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -187,25 +205,8 @@ nav a:hover { color: var(--primary-color); }
 .btn-text { background: none; border: none; color: var(--primary-color); font-weight: 600; cursor: pointer; }
 
 /* 5. COLORES */
-.palette-container {
-    display: flex;
-    justify-content: space-between;
-    height: 200px;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.color-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: var(--font-heading);
-    transition: flex 0.3s;
-}
-
+.palette-container { display: flex; justify-content: space-between; height: 200px; border-radius: 15px; overflow: hidden; }
+.color-block { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; font-family: var(--font-heading); transition: flex 0.3s; }
 .color-block:hover { flex: 1.5; }
 .hex-code { font-weight: 800; font-size: 1.2rem; }
 .color-name { font-size: 0.9rem; opacity: 0.9; }
@@ -217,7 +218,6 @@ nav a:hover { color: var(--primary-color); }
     grid-template-rows: repeat(2, 250px);
     gap: 15px;
 }
-
 .moodboard-item { position: relative; overflow: hidden; border-radius: 5px; }
 .moodboard-item img { width: 100%; height: 100%; object-fit: cover; }
 .item-large { grid-column: span 2; grid-row: span 2; }
@@ -232,15 +232,25 @@ nav a:hover { color: var(--primary-color); }
 .about-links a { margin: 0 15px; color: var(--primary-color); font-weight: 600; text-decoration: underline; }
 .slogan-secondary { margin-top: 50px; font-style: italic; color: #888; }
 
-footer { background: #111; color: #888; padding: 50px 0 20px; }
+footer { background: #111; color: #888; padding: 50px 0 20px; position: relative; z-index: 2; }
 .footer-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
 .footer-brand h4 { color: white; font-size: 1.5rem; }
 .social-icons i { margin-left: 15px; font-size: 1.2rem; cursor: pointer; color: white; }
 .copyright { text-align: center; font-size: 0.8rem; border-top: 1px solid #333; padding-top: 20px; }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+    /* En pantallas medianas y pequeñas, eliminamos las columnas laterales */
+    .layout-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+    .ad-sidebar {
+        display: none; /* Ocultar publicidad en tablets/móviles */
+    }
+}
+
 @media (max-width: 768px) {
-    .logo-img { height: 40px; } /* Ajuste del logo para móvil */
+    .logo-img { height: 40px; }
     .hero h1 { font-size: 2.5rem; }
     nav { display: none; }
     .menu-toggle { display: block; font-size: 1.5rem; }
