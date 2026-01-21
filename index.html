@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-SUAL | Inspiración Visual</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="logo">B-SUAL</div>
+        <nav>
+            <ul>
+                <li><a href="#explorar">Explorar</a></li>
+                <li><a href="#inspo">Inspo</a></li>
+                <li><a href="#colores">Colores</a></li>
+                <li><a href="#moodboard">Moodboard</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Inspiración visual en cada píxel</h1>
+            <p>Explora, comparte y descarga imágenes creativas.</p>
+            <div class="hero-buttons">
+                <a href="#explorar" class="btn btn-primary">Comenzar a explorar</a>
+                <a href="#inspo" class="btn btn-secondary">Ver inspiración</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="explorar" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Explorar tendencias visuales</h2>
+            <div class="filters">
+                <button class="filter-btn active">Popular</button>
+                <button class="filter-btn">Reciente</button>
+                <button class="filter-btn">Tendencias</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=600&q=80" alt="Arte Abstracto">
+                    <div class="overlay">
+                        <span>#arte</span>
+                        <button>Ver más</button>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=600&q=80" alt="Diseño Futurista">
+                    <div class="overlay">
+                        <span>#diseño</span>
+                        <button>Ver más</button>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=600&q=80" alt="Fotografía Minimalista">
+                    <div class="overlay">
+                        <span>#fotografía</span>
+                        <button>Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inspo" class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Inspiración por Categoría</h2>
+            
+            <div class="inspo-split">
+                <div class="inspo-card">
+                    <h3>Diseño</h3>
+                    <p>Proyectos gráficos, branding y tipografía.</p>
+                    <div class="mini-gallery">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799314348d?auto=format&fit=crop&w=300&q=80" alt="Diseño 1">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=300&q=80" alt="Diseño 2">
+                    </div>
+                    <div class="card-footer">
+                        <span><i class="fas fa-heart"></i> 1.2k</span>
+                        <button class="btn-text">Ver todo</button>
+                    </div>
+                </div>
+
+                <div class="inspo-card">
+                    <h3>Fotografía</h3>
+                    <p>Retrato, paisaje y arte conceptual.</p>
+                    <div class="mini-gallery">
+                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=300&q=80" alt="Foto 1">
+                        <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=300&q=80" alt="Foto 2">
+                    </div>
+                    <div class="card-footer">
+                        <span><i class="fas fa-heart"></i> 980</span>
+                        <button class="btn-text">Ver todo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="colores" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Teoría del Color</h2>
+            <p class="section-subtitle">Genera paletas cromáticas para tu próximo proyecto.</p>
+            
+            <div class="palette-container" id="palette-display">
+                <div class="color-block" style="background-color: #FF6B6B;">
+                    <span class="hex-code">#FF6B6B</span>
+                    <span class="color-name">Coral Vivo</span>
+                </div>
+                <div class="color-block" style="background-color: #4ECDC4;">
+                    <span class="hex-code">#4ECDC4</span>
+                    <span class="color-name">Turquesa</span>
+                </div>
+                <div class="color-block" style="background-color: #FFE66D;">
+                    <span class="hex-code">#FFE66D</span>
+                    <span class="color-name">Amarillo Sol</span>
+                </div>
+                <div class="color-block" style="background-color: #1A535C;">
+                    <span class="hex-code">#1A535C</span>
+                    <span class="color-name">Azul Profundo</span>
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="btn btn-primary btn-center">Generar paleta aleatoria</button>
+        </div>
+    </section>
+
+    <section id="moodboard" class="section-padding bg-dark text-white">
+        <div class="container">
+            <h2 class="section-title">Moodboards Creativos</h2>
+            <div class="moodboard-grid">
+                <div class="moodboard-item item-large">
+                    <img src="https://images.unsplash.com/photo-1534120247760-c44c3e4a62f1?auto=format&fit=crop&w=600&q=80" alt="Mood 1">
+                    <div class="mb-info">
+                        <h4>Urban Style</h4>
+                    </div>
+                </div>
+                <div class="moodboard-item">
+                    <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&w=400&q=80" alt="Mood 2">
+                </div>
+                <div class="moodboard-item">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&q=80" alt="Mood 3">
+                </div>
+                <div class="moodboard-item">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Mood 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section-padding">
+        <div class="container text-center">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="mission-text">B-SUAL nace para conectar creativos a través de la inspiración visual.</p>
+            <div class="about-links">
+                <a href="#">¿Qué es B-SUAL?</a>
+                <a href="#">Contacto</a>
+            </div>
+            <h3 class="slogan-secondary">Donde la creatividad encuentra su espacio.</h3>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h4>B-SUAL</h4>
+            </div>
+            <div class="footer-links">
+                <a href="#explorar">Explorar</a>
+                <a href="#inspo">Inspo</a>
+                <a href="#colores">Colores</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 B-SUAL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
