@@ -75,7 +75,7 @@ ul { list-style: none; }
 
 .btn-center { display: block; margin: 30px auto 0; width: fit-content; }
 
-/* 1. HEADER */
+/* 1. HEADER (MODIFICADO PARA LOGO IMAGEN) */
 header {
     position: fixed;
     top: 0;
@@ -90,11 +90,16 @@ header {
     z-index: 1000;
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--primary-color);
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-img {
+    height: 50px; /* Altura controlada */
+    width: auto;
+    display: block;
 }
 
 nav ul { display: flex; gap: 20px; }
@@ -235,8 +240,9 @@ footer { background: #111; color: #888; padding: 50px 0 20px; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .logo-img { height: 40px; } /* Ajuste del logo para móvil */
     .hero h1 { font-size: 2.5rem; }
-    nav { display: none; } /* En una real se añadiría JS para menú hamburguesa */
+    nav { display: none; }
     .menu-toggle { display: block; font-size: 1.5rem; }
     .inspo-split { grid-template-columns: 1fr; }
     .moodboard-grid { display: flex; flex-direction: column; }
