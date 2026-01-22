@@ -1,13 +1,12 @@
 /* VARIABLES Y RESET */
 :root {
-    /* --- TU NUEVA PALETA DE COLORES --- */
-    --primary-color: #263056;   /* AZUL (Principal) */
-    --secondary-color: #653336; /* VINOTINTO (Acentos/Hover) */
-    --accent-color: #8c4b2f;    /* NARANJA AMARRONADO (Detalles vivos) */
-    --text-color: #433431;      /* MARRÓN (Texto elegante) */
-    --bg-light: #f3ebe0;        /* BEIGE (Fondos suaves) */
-    --details-grey: #aeb2b5;    /* GRIS (Neutros) */
-    --details-green: #666954;   /* VERDE MILITAR (Extra) */
+    --primary-color: #263056;   /* AZUL */
+    --secondary-color: #653336; /* VINOTINTO */
+    --accent-color: #8c4b2f;    /* TERRACOTA */
+    --text-color: #433431;      /* MARRÓN */
+    --bg-light: #f3ebe0;        /* BEIGE */
+    --details-grey: #aeb2b5;    /* GRIS */
+    --details-green: #666954;   /* VERDE */
     
     --white: #ffffff;
     --font-heading: 'Montserrat', sans-serif;
@@ -22,7 +21,7 @@
 
 body {
     font-family: var(--font-body);
-    color: var(--text-color); /* Ahora el texto es marrón elegante */
+    color: var(--text-color);
     line-height: 1.6;
     scroll-behavior: smooth;
     background-color: var(--white);
@@ -40,25 +39,34 @@ ul { list-style: none; }
 }
 
 .ad-sidebar {
-    background-color: var(--bg-light); /* Fondo beige para los laterales */
+    background-color: var(--bg-light); /* Fondo beige en sidebar */
     height: calc(100vh - 70px);
     position: sticky;
     top: 70px;
     display: flex;
     justify-content: center;
-    padding: 20px 10px;
+    align-items: center; /* Centrado para el placeholder */
+    padding: 10px;
     z-index: 900;
-    border-right: 1px solid rgba(0,0,0,0.05); /* Sutil separación */
+    border-right: 1px solid rgba(0,0,0,0.05);
     border-left: 1px solid rgba(0,0,0,0.05);
 }
 
-.ad-image {
+/* Estilos para el cuadro gris de publicidad (Restaurado) */
+.ad-placeholder {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 80%;
+    background-color: var(--details-grey);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
     border-radius: 5px;
-    max-height: 80vh;
-    align-self: flex-start;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    opacity: 0.7;
 }
 
 .main-content { min-width: 0; }
@@ -72,9 +80,8 @@ ul { list-style: none; }
 
 .section-padding { padding: 80px 0; }
 
-/* Fondos actualizados */
-.bg-light { background-color: var(--bg-light); } /* Ahora es BEIGE */
-.bg-dark { background-color: var(--primary-color); color: white; } /* Ahora es AZUL */
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--primary-color); color: white; }
 
 .text-center { text-align: center; }
 
@@ -86,7 +93,7 @@ ul { list-style: none; }
     margin-bottom: 40px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--primary-color); /* Títulos en azul */
+    color: var(--primary-color);
 }
 
 /* BOTONES */
@@ -100,12 +107,12 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-    background-color: var(--primary-color); /* AZUL */
+    background-color: var(--primary-color);
     color: var(--white);
     border: 2px solid var(--primary-color);
 }
 .btn-primary:hover { 
-    background-color: var(--secondary-color); /* VINOTINTO al pasar mouse */
+    background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
 
@@ -122,18 +129,19 @@ ul { list-style: none; }
 
 .btn-center { display: block; margin: 30px auto 0; width: fit-content; }
 
-/* 1. HEADER */
+/* 1. HEADER (Color modificado a Beige) */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     height: 70px;
-    background: rgba(255, 255, 255, 0.98);
+    /* Fondo BEIGE con un poco de transparencia para efecto moderno */
+    background: rgba(243, 235, 224, 0.98); 
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    box-shadow: 0 2px 10px rgba(67, 52, 49, 0.1); /* Sombra tono marrón */
+    box-shadow: 0 2px 10px rgba(67, 52, 49, 0.1);
     z-index: 1000;
 }
 
@@ -142,7 +150,7 @@ header {
 
 nav ul { display: flex; gap: 20px; }
 nav a { font-weight: 600; font-size: 0.9rem; text-transform: uppercase; color: var(--text-color); }
-nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
+nav a:hover { color: var(--secondary-color); }
 
 .user-actions i { font-size: 1.5rem; cursor: pointer; color: var(--primary-color); }
 .menu-toggle { display: none; }
@@ -150,7 +158,6 @@ nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
 /* 2. HERO SECTION */
 .hero {
     height: 80vh; 
-    /* He oscurecido un poco más la imagen para que resalte el texto blanco */
     background-image: linear-gradient(rgba(38, 48, 86, 0.6), rgba(67, 52, 49, 0.4)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80');
     background-size: cover;
     background-position: center;
@@ -171,7 +178,7 @@ nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
     border: none; background: none; font-weight: 600; cursor: pointer;
     font-family: var(--font-heading); color: var(--details-grey);
 }
-.filter-btn.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); } /* Naranja activo */
+.filter-btn.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); }
 
 .gallery-grid {
     display: grid;
@@ -183,7 +190,7 @@ nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
 .gallery-item:hover img { transform: scale(1.1); }
 .gallery-item .overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(38, 48, 86, 0.7); /* Capa azul sobre imágenes */
+    background: rgba(38, 48, 86, 0.7);
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     opacity: 0; transition: 0.3s;
 }
@@ -197,7 +204,7 @@ nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
     background: white; 
     padding: 30px; 
     border-radius: 5px; 
-    box-shadow: 0 10px 30px rgba(67, 52, 49, 0.08); /* Sombra marrón suave */
+    box-shadow: 0 10px 30px rgba(67, 52, 49, 0.08); 
     border: 1px solid var(--bg-light);
 }
 .inspo-card h3 { color: var(--primary-color); margin-bottom: 10px; font-family: var(--font-heading); }
@@ -235,8 +242,8 @@ nav a:hover { color: var(--secondary-color); } /* Vinotinto al hover */
 .slogan-secondary { margin-top: 50px; font-style: italic; color: var(--details-grey); font-family: serif; }
 
 footer { 
-    background: var(--text-color); /* Footer color Marrón oscuro */
-    color: var(--bg-light); /* Texto beige */
+    background: var(--text-color); 
+    color: var(--bg-light); 
     padding: 50px 0 20px; 
     position: relative; 
     z-index: 2; 
